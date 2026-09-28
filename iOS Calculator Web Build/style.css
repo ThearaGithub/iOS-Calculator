@@ -1,0 +1,150 @@
+:root {
+  --bg: #000000;
+  --key-dark: #333333;
+  --key-fn: #a5a5a5;
+  --key-orange: #ff9f0a;
+  --key-orange-active: #ffffff;
+  --text-light: #ffffff;
+  --text-dark: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #1c1c1e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.calculator {
+  width: 100%;
+  max-width: 380px;
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px 16px calc(20px + env(safe-area-inset-bottom));
+}
+
+@media (min-width: 500px) {
+  .calculator {
+    min-height: auto;
+    border-radius: 44px;
+    padding: 32px 20px 24px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* ---------- Display ---------- */
+.display {
+  padding: 12px 10px 20px;
+  text-align: right;
+  overflow: hidden;
+}
+
+.history {
+  color: #8e8e93;
+  font-size: 18px;
+  font-weight: 400;
+  min-height: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.result {
+  color: var(--text-light);
+  font-size: 80px;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  white-space: nowrap;
+  overflow-x: hidden;
+  transition: font-size 0.15s ease;
+}
+
+.result.shrink-1 { font-size: 64px; }
+.result.shrink-2 { font-size: 52px; }
+.result.shrink-3 { font-size: 42px; }
+
+/* ---------- Keys ---------- */
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.key {
+  aspect-ratio: 1 / 1;
+  border: none;
+  border-radius: 50%;
+  font-size: 34px;
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter 0.1s ease, transform 0.06s ease, background 0.15s ease;
+}
+
+.key:active {
+  filter: brightness(1.45);
+  transform: scale(0.97);
+}
+
+.key.num,
+.key.op {
+  color: var(--text-light);
+}
+
+.key.num {
+  background: var(--key-dark);
+  font-size: 38px;
+}
+
+.key.fn {
+  background: var(--key-fn);
+  color: var(--text-dark);
+  font-size: 30px;
+}
+
+.key.op {
+  background: var(--key-orange);
+  font-size: 40px;
+}
+
+.key.wide {
+  grid-column: span 2;
+  aspect-ratio: auto;
+  border-radius: 999px;
+  justify-content: flex-start;
+  padding-left: 28px;
+}
+
+/* Active operator state: white bg, orange text (like iOS) */
+.key.op.active {
+  background: var(--key-orange-active);
+  color: var(--key-orange);
+}
+
+@media (max-width: 360px) {
+  .key { font-size: 28px; }
+  .key.num { font-size: 32px; }
+  .key.op { font-size: 34px; }
+  .result { font-size: 64px; }
+}

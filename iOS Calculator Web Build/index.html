@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>Calculator</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="calculator" role="application" aria-label="iOS Calculator">
+    <div class="display">
+      <div class="history" id="history">&nbsp;</div>
+      <div class="result" id="result">0</div>
+    </div>
+
+    <div class="keys">
+      <!-- Row 1 -->
+      <button class="key fn" data-action="clear" id="btn-clear">AC</button>
+      <button class="key fn" data-action="sign">+/&minus;</button>
+      <button class="key fn" data-action="percent">%</button>
+      <button class="key op" data-action="operator" data-op="/">÷</button>
+
+      <!-- Row 2 -->
+      <button class="key num" data-digit="7">7</button>
+      <button class="key num" data-digit="8">8</button>
+      <button class="key num" data-digit="9">9</button>
+      <button class="key op" data-action="operator" data-op="*">×</button>
+
+      <!-- Row 3 -->
+      <button class="key num" data-digit="4">4</button>
+      <button class="key num" data-digit="5">5</button>
+      <button class="key num" data-digit="6">6</button>
+      <button class="key op" data-action="operator" data-op="-">−</button>
+
+      <!-- Row 4 -->
+      <button class="key num" data-digit="1">1</button>
+      <button class="key num" data-digit="2">2</button>
+      <button class="key num" data-digit="3">3</button>
+      <button class="key op" data-action="operator" data-op="+">+</button>
+
+      <!-- Row 5 -->
+      <button class="key num wide" data-digit="0">0</button>
+      <button class="key num" data-action="decimal">.</button>
+      <button class="key op equals" data-action="equals">=</button>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
